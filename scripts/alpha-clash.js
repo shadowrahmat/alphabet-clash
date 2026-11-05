@@ -12,7 +12,20 @@
 //   // console.log(playGroundSection.classList);
 // }
 
+function continueGame() {
+  let alphabet = getARandomAlphabet();
+  console.log("Your alphabet is:", alphabet);
+
+  // set randomly generated alphabet to the screen....
+
+  let currentAlphabetElement = document.getElementById("current-alphabet");
+  currentAlphabetElement.innerText = alphabet;
+
+  setBackgroundColorById(alphabet);
+}
+
 function play() {
   hideElementById("home-screen");
   showElementById("play-ground");
+  continueGame();
 }
