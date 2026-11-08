@@ -51,10 +51,31 @@ function handleKeyboardKeyUpEvent(event) {
   if (playerPressedKey === expectedAlphabet) {
     console.log("Player pressed the correct key, player get a point");
     console.log("You have pressed correctly", expectedAlphabet);
+
+    // update the score of the player........
+    // 1. get the current score.....
+
+    let currentScoreElement = document.getElementById("current-score");
+    let currentScoreText = currentScoreElement.innerText;
+    let currentScore = parseInt(currentScoreText);
+
+    console.log(currentScore);
+    let newScore = currentScore + 1;
+    currentScoreElement.innerText = newScore;
+    // start a new round of the game........
     removeBackgroundColorById(expectedAlphabet);
     continueGame();
   } else {
     console.log("Player pressed the wrong key, player lost a point");
+    // step 1: get the current life number
+    let currentLifeElement = document.getElementById("current-life");
+    let currentLifeText = currentLifeElement.innerText;
+    let currentLife = parseInt(currentLifeText);
+
+    // step 2: reduce the life count
+    let newLife = currentLife - 1;
+    // step 3: display the update life count
+    currentLifeElement.innerText = newLife;
   }
 }
 
